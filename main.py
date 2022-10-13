@@ -1,6 +1,4 @@
-
 from typing import IO, List
-
 
 def open_file() -> IO:
     # ask for file name
