@@ -1,5 +1,6 @@
 from typing import IO, List
 
+
 def open_file() -> IO:
     # ask for file name
     file_name = input("Enter a filename: ")
@@ -113,17 +114,19 @@ def main():
     # set continue to yes for the first iteration of while
     cont = "yes"
     # this way, only yes, YES, yEs, ect. makes the program continue,
+    # note: Professor said no need to have "no" stop the program, anything other than yes can stop the program
     while cont.lower() == "yes":
         # ask user for an integer that signifies the friend id that will have a friend recommended to him or her
-        n = (input("Enter an integer from the range 0 to " + str(len(net) - 1) + ": "))
+        n = (input(f"Enter an integer from the range 0 to {len(net) - 1} : "))
         # while the id the user types is not a number or is not in the range of valid id's
+        # note: Professor said no need to use try-except
         while n.isdigit() == False or int(n) < 0 or int(n) > len(net) - 1:
             # let the user know he or she put an invalid id
-            print("Error: input must be an int between 0 and " + str(len(net) - 1))
+            print(f"Error: input must be an int between 0 and {len(net) - 1}")
             # ask the user for another id
-            n = (input("Enter an integer from the range 0 to " + str(len(net) - 1) + ": "))
+            n = (input(f"Enter an integer from the range 0 to {len(net) - 1} : "))
         # print the suggested friend's id
-        print("The suggested friend for " + str(n) + " is " + str(recommend(int(n), net, similar)) + "\n")
+        print(f"The suggested friend for {n} is {recommend(int(n), net, similar)} \n")
         # ask the user if he or she wants to continue with the program
         cont = input("Do you want to continue (yes/no)? ")
 
